@@ -7,19 +7,23 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		1C601D1729C84D0B00844015 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1C601D1629C84D0B00844015 /* AppDelegate.swift */; };
-		1C601D1929C84D0B00844015 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1C601D1829C84D0B00844015 /* ViewController.swift */; };
 		1C601D1B29C84D0C00844015 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 1C601D1A29C84D0C00844015 /* Assets.xcassets */; };
-		1C601D1E29C84D0C00844015 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 1C601D1C29C84D0C00844015 /* Main.storyboard */; };
+		1CD26C9329C84E1900F401BC /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 1CD26C9229C84E1900F401BC /* Main.storyboard */; };
+		1CD26C9829C84E5400F401BC /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1CD26C9429C84E5400F401BC /* AppDelegate.swift */; };
+		1CD26C9929C84E5400F401BC /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1CD26C9529C84E5400F401BC /* ViewController.swift */; };
+		1CD26C9A29C84E5400F401BC /* Item.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1CD26C9629C84E5400F401BC /* Item.swift */; };
+		1CD26C9B29C84E5400F401BC /* WindowController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1CD26C9729C84E5400F401BC /* WindowController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
 		1C601D1329C84D0B00844015 /* CopyPasteBoardApp.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = CopyPasteBoardApp.app; sourceTree = BUILT_PRODUCTS_DIR; };
-		1C601D1629C84D0B00844015 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
-		1C601D1829C84D0B00844015 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
 		1C601D1A29C84D0C00844015 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
-		1C601D1D29C84D0C00844015 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		1C601D1F29C84D0C00844015 /* CopyPasteBoardApp.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = CopyPasteBoardApp.entitlements; sourceTree = "<group>"; };
+		1CD26C9229C84E1900F401BC /* Main.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = Main.storyboard; sourceTree = "<group>"; };
+		1CD26C9429C84E5400F401BC /* AppDelegate.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
+		1CD26C9529C84E5400F401BC /* ViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
+		1CD26C9629C84E5400F401BC /* Item.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Item.swift; sourceTree = "<group>"; };
+		1CD26C9729C84E5400F401BC /* WindowController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = WindowController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -52,11 +56,13 @@
 		1C601D1529C84D0B00844015 /* CopyPasteBoardApp */ = {
 			isa = PBXGroup;
 			children = (
-				1C601D1629C84D0B00844015 /* AppDelegate.swift */,
-				1C601D1829C84D0B00844015 /* ViewController.swift */,
 				1C601D1A29C84D0C00844015 /* Assets.xcassets */,
-				1C601D1C29C84D0C00844015 /* Main.storyboard */,
 				1C601D1F29C84D0C00844015 /* CopyPasteBoardApp.entitlements */,
+				1CD26C9229C84E1900F401BC /* Main.storyboard */,
+				1CD26C9429C84E5400F401BC /* AppDelegate.swift */,
+				1CD26C9629C84E5400F401BC /* Item.swift */,
+				1CD26C9529C84E5400F401BC /* ViewController.swift */,
+				1CD26C9729C84E5400F401BC /* WindowController.swift */,
 			);
 			path = CopyPasteBoardApp;
 			sourceTree = "<group>";
@@ -93,6 +99,7 @@
 				TargetAttributes = {
 					1C601D1229C84D0B00844015 = {
 						CreatedOnToolsVersion = 14.2;
+						LastSwiftMigration = 1420;
 					};
 				};
 			};
@@ -120,7 +127,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				1C601D1B29C84D0C00844015 /* Assets.xcassets in Resources */,
-				1C601D1E29C84D0C00844015 /* Main.storyboard in Resources */,
+				1CD26C9329C84E1900F401BC /* Main.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -131,23 +138,14 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				1C601D1929C84D0B00844015 /* ViewController.swift in Sources */,
-				1C601D1729C84D0B00844015 /* AppDelegate.swift in Sources */,
+				1CD26C9929C84E5400F401BC /* ViewController.swift in Sources */,
+				1CD26C9B29C84E5400F401BC /* WindowController.swift in Sources */,
+				1CD26C9A29C84E5400F401BC /* Item.swift in Sources */,
+				1CD26C9829C84E5400F401BC /* AppDelegate.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXSourcesBuildPhase section */
-
-/* Begin PBXVariantGroup section */
-		1C601D1C29C84D0C00844015 /* Main.storyboard */ = {
-			isa = PBXVariantGroup;
-			children = (
-				1C601D1D29C84D0C00844015 /* Base */,
-			);
-			name = Main.storyboard;
-			sourceTree = "<group>";
-		};
-/* End PBXVariantGroup section */
 
 /* Begin XCBuildConfiguration section */
 		1C601D2029C84D0C00844015 /* Debug */ = {
@@ -268,6 +266,7 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				CLANG_ENABLE_MODULES = YES;
 				CODE_SIGN_ENTITLEMENTS = CopyPasteBoardApp/CopyPasteBoardApp.entitlements;
 				CODE_SIGN_STYLE = Automatic;
 				COMBINE_HIDPI_IMAGES = YES;
@@ -287,6 +286,7 @@
 				PRODUCT_BUNDLE_IDENTIFIER = com.majidjamali.CopyPasteBoardApp;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_EMIT_LOC_STRINGS = YES;
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
 				SWIFT_VERSION = 5.0;
 			};
 			name = Debug;
@@ -296,6 +296,7 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				CLANG_ENABLE_MODULES = YES;
 				CODE_SIGN_ENTITLEMENTS = CopyPasteBoardApp/CopyPasteBoardApp.entitlements;
 				CODE_SIGN_STYLE = Automatic;
 				COMBINE_HIDPI_IMAGES = YES;

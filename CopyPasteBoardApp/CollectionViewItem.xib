@@ -1,0 +1,78 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.Cocoa.XIB" version="3.0" toolsVersion="21507" targetRuntime="MacOSX.Cocoa" propertyAccessControl="none" useAutolayout="YES" customObjectInstantitationMethod="direct">
+    <dependencies>
+        <plugIn identifier="com.apple.InterfaceBuilder.CocoaPlugin" version="21507"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <objects>
+        <customObject id="-2" userLabel="File's Owner" customClass="CollectionViewItem" customModule="CopyPasteBoardApp" customModuleProvider="target">
+            <connections>
+                <outlet property="itemTypeImageView" destination="XoS-mk-xCg" id="W6y-0S-lwz"/>
+                <outlet property="sizeLabel" destination="Rjn-VX-Nax" id="gVu-Gr-U2q"/>
+                <outlet property="titleLabel" destination="AUR-JC-ZZ9" id="9mh-vQ-UGw"/>
+                <outlet property="view" destination="Hz6-mo-xeY" id="0bl-1N-x8E"/>
+            </connections>
+        </customObject>
+        <customObject id="-1" userLabel="First Responder" customClass="FirstResponder"/>
+        <customObject id="-3" userLabel="Application" customClass="NSObject"/>
+        <customView identifier="ItemCell" id="Hz6-mo-xeY">
+            <rect key="frame" x="0.0" y="0.0" width="234" height="42"/>
+            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
+            <subviews>
+                <textField horizontalHuggingPriority="251" verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="AUR-JC-ZZ9">
+                    <rect key="frame" x="26" y="13" width="37" height="16"/>
+                    <textFieldCell key="cell" lineBreakMode="clipping" title="Label" id="inw-Rw-6Ub">
+                        <font key="font" usesAppearanceFont="YES"/>
+                        <color key="textColor" name="labelColor" catalog="System" colorSpace="catalog"/>
+                        <color key="backgroundColor" name="textBackgroundColor" catalog="System" colorSpace="catalog"/>
+                    </textFieldCell>
+                </textField>
+                <button identifier="ItemCell" translatesAutoresizingMaskIntoConstraints="NO" id="eWi-CM-3me">
+                    <rect key="frame" x="218" y="10" width="16" height="22"/>
+                    <constraints>
+                        <constraint firstAttribute="height" constant="16" id="CHC-Sc-F4T"/>
+                        <constraint firstAttribute="width" constant="16" id="oJL-87-ZCh"/>
+                    </constraints>
+                    <buttonCell key="cell" type="square" bezelStyle="shadowlessSquare" image="arrow.right.circle.fill" catalog="system" imagePosition="only" alignment="center" imageScaling="proportionallyUpOrDown" inset="2" id="by1-0D-y2Z">
+                        <behavior key="behavior" pushIn="YES" lightByBackground="YES" lightByGray="YES"/>
+                        <font key="font" metaFont="system"/>
+                    </buttonCell>
+                    <connections>
+                        <action selector="gotoButtonDidTap:" target="-2" id="YLt-Dt-Thq"/>
+                    </connections>
+                </button>
+                <textField horizontalHuggingPriority="251" verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="Rjn-VX-Nax">
+                    <rect key="frame" x="179" y="13" width="37" height="16"/>
+                    <textFieldCell key="cell" lineBreakMode="clipping" alignment="right" title="Label" id="Zey-EA-hyq">
+                        <font key="font" metaFont="system"/>
+                        <color key="textColor" name="labelColor" catalog="System" colorSpace="catalog"/>
+                        <color key="backgroundColor" name="textBackgroundColor" catalog="System" colorSpace="catalog"/>
+                    </textFieldCell>
+                </textField>
+                <imageView horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="XoS-mk-xCg">
+                    <rect key="frame" x="0.0" y="9" width="24" height="24"/>
+                    <constraints>
+                        <constraint firstAttribute="height" constant="24" id="idu-ke-6wD"/>
+                        <constraint firstAttribute="width" constant="24" id="pzY-V4-6c7"/>
+                    </constraints>
+                    <imageCell key="cell" refusesFirstResponder="YES" alignment="left" imageScaling="proportionallyDown" id="Vki-cf-dRa"/>
+                </imageView>
+            </subviews>
+            <constraints>
+                <constraint firstAttribute="trailing" secondItem="eWi-CM-3me" secondAttribute="trailing" id="Iav-7q-f77"/>
+                <constraint firstItem="XoS-mk-xCg" firstAttribute="leading" secondItem="Hz6-mo-xeY" secondAttribute="leading" id="S8q-zs-7hk"/>
+                <constraint firstItem="Rjn-VX-Nax" firstAttribute="centerY" secondItem="Hz6-mo-xeY" secondAttribute="centerY" id="YyJ-Ml-uIv"/>
+                <constraint firstItem="AUR-JC-ZZ9" firstAttribute="leading" secondItem="XoS-mk-xCg" secondAttribute="trailing" constant="4" id="aIb-oY-o4k"/>
+                <constraint firstItem="eWi-CM-3me" firstAttribute="leading" secondItem="Rjn-VX-Nax" secondAttribute="trailing" constant="4" id="c9C-aj-JsB"/>
+                <constraint firstItem="eWi-CM-3me" firstAttribute="centerY" secondItem="Hz6-mo-xeY" secondAttribute="centerY" id="f2Y-2g-kMz"/>
+                <constraint firstItem="XoS-mk-xCg" firstAttribute="centerY" secondItem="Hz6-mo-xeY" secondAttribute="centerY" id="kZn-Ji-T5V"/>
+                <constraint firstItem="AUR-JC-ZZ9" firstAttribute="centerY" secondItem="Hz6-mo-xeY" secondAttribute="centerY" id="wxW-uk-OYV"/>
+                <constraint firstItem="Rjn-VX-Nax" firstAttribute="leading" relation="greaterThanOrEqual" secondItem="AUR-JC-ZZ9" secondAttribute="trailing" constant="8" id="wz9-xB-Grt"/>
+            </constraints>
+            <point key="canvasLocation" x="132" y="-65"/>
+        </customView>
+    </objects>
+    <resources>
+        <image name="arrow.right.circle.fill" catalog="system" width="15" height="15"/>
+    </resources>
+</document>

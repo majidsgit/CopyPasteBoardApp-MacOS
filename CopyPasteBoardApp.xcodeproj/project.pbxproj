@@ -7,15 +7,23 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		1C1B061829C9218700A41769 /* NSWorkspaceExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1C1B061729C9218700A41769 /* NSWorkspaceExtension.swift */; };
+		1C59513D29C8FDFE000F62F3 /* CollectionViewItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1C59513B29C8FDFE000F62F3 /* CollectionViewItem.swift */; };
+		1C59513E29C8FDFE000F62F3 /* CollectionViewItem.xib in Resources */ = {isa = PBXBuildFile; fileRef = 1C59513C29C8FDFE000F62F3 /* CollectionViewItem.xib */; };
 		1C601D1B29C84D0C00844015 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 1C601D1A29C84D0C00844015 /* Assets.xcassets */; };
 		1CD26C9329C84E1900F401BC /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 1CD26C9229C84E1900F401BC /* Main.storyboard */; };
 		1CD26C9829C84E5400F401BC /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1CD26C9429C84E5400F401BC /* AppDelegate.swift */; };
 		1CD26C9929C84E5400F401BC /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1CD26C9529C84E5400F401BC /* ViewController.swift */; };
 		1CD26C9A29C84E5400F401BC /* Item.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1CD26C9629C84E5400F401BC /* Item.swift */; };
 		1CD26C9B29C84E5400F401BC /* WindowController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1CD26C9729C84E5400F401BC /* WindowController.swift */; };
+		1CD26C9D29C8650800F401BC /* NSNotification+Name.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1CD26C9C29C8650800F401BC /* NSNotification+Name.swift */; };
+		1CD26C9F29C8690B00F401BC /* NSURL+String.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1CD26C9E29C8690B00F401BC /* NSURL+String.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		1C1B061729C9218700A41769 /* NSWorkspaceExtension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NSWorkspaceExtension.swift; sourceTree = "<group>"; };
+		1C59513B29C8FDFE000F62F3 /* CollectionViewItem.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CollectionViewItem.swift; sourceTree = "<group>"; };
+		1C59513C29C8FDFE000F62F3 /* CollectionViewItem.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = CollectionViewItem.xib; sourceTree = "<group>"; };
 		1C601D1329C84D0B00844015 /* CopyPasteBoardApp.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = CopyPasteBoardApp.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		1C601D1A29C84D0C00844015 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		1C601D1F29C84D0C00844015 /* CopyPasteBoardApp.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = CopyPasteBoardApp.entitlements; sourceTree = "<group>"; };
@@ -24,6 +32,8 @@
 		1CD26C9529C84E5400F401BC /* ViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
 		1CD26C9629C84E5400F401BC /* Item.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Item.swift; sourceTree = "<group>"; };
 		1CD26C9729C84E5400F401BC /* WindowController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = WindowController.swift; sourceTree = "<group>"; };
+		1CD26C9C29C8650800F401BC /* NSNotification+Name.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "NSNotification+Name.swift"; sourceTree = "<group>"; };
+		1CD26C9E29C8690B00F401BC /* NSURL+String.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "NSURL+String.swift"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -60,11 +70,40 @@
 				1C601D1F29C84D0C00844015 /* CopyPasteBoardApp.entitlements */,
 				1CD26C9229C84E1900F401BC /* Main.storyboard */,
 				1CD26C9429C84E5400F401BC /* AppDelegate.swift */,
-				1CD26C9629C84E5400F401BC /* Item.swift */,
-				1CD26C9529C84E5400F401BC /* ViewController.swift */,
-				1CD26C9729C84E5400F401BC /* WindowController.swift */,
+				1C59513B29C8FDFE000F62F3 /* CollectionViewItem.swift */,
+				1C59513C29C8FDFE000F62F3 /* CollectionViewItem.xib */,
+				1CD26CA129C871E400F401BC /* Controllers */,
+				1CD26CA029C871D700F401BC /* Extensions */,
+				1CD26CA229C871EA00F401BC /* Models */,
 			);
 			path = CopyPasteBoardApp;
+			sourceTree = "<group>";
+		};
+		1CD26CA029C871D700F401BC /* Extensions */ = {
+			isa = PBXGroup;
+			children = (
+				1CD26C9C29C8650800F401BC /* NSNotification+Name.swift */,
+				1CD26C9E29C8690B00F401BC /* NSURL+String.swift */,
+				1C1B061729C9218700A41769 /* NSWorkspaceExtension.swift */,
+			);
+			path = Extensions;
+			sourceTree = "<group>";
+		};
+		1CD26CA129C871E400F401BC /* Controllers */ = {
+			isa = PBXGroup;
+			children = (
+				1CD26C9729C84E5400F401BC /* WindowController.swift */,
+				1CD26C9529C84E5400F401BC /* ViewController.swift */,
+			);
+			path = Controllers;
+			sourceTree = "<group>";
+		};
+		1CD26CA229C871EA00F401BC /* Models */ = {
+			isa = PBXGroup;
+			children = (
+				1CD26C9629C84E5400F401BC /* Item.swift */,
+			);
+			path = Models;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -128,6 +167,7 @@
 			files = (
 				1C601D1B29C84D0C00844015 /* Assets.xcassets in Resources */,
 				1CD26C9329C84E1900F401BC /* Main.storyboard in Resources */,
+				1C59513E29C8FDFE000F62F3 /* CollectionViewItem.xib in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -139,9 +179,13 @@
 			buildActionMask = 2147483647;
 			files = (
 				1CD26C9929C84E5400F401BC /* ViewController.swift in Sources */,
+				1C59513D29C8FDFE000F62F3 /* CollectionViewItem.swift in Sources */,
+				1C1B061829C9218700A41769 /* NSWorkspaceExtension.swift in Sources */,
 				1CD26C9B29C84E5400F401BC /* WindowController.swift in Sources */,
 				1CD26C9A29C84E5400F401BC /* Item.swift in Sources */,
+				1CD26C9D29C8650800F401BC /* NSNotification+Name.swift in Sources */,
 				1CD26C9829C84E5400F401BC /* AppDelegate.swift in Sources */,
+				1CD26C9F29C8690B00F401BC /* NSURL+String.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -274,6 +318,7 @@
 				DEVELOPMENT_TEAM = 6526WFULUB;
 				ENABLE_HARDENED_RUNTIME = YES;
 				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_KEY_CFBundleDisplayName = PasteBoard;
 				INFOPLIST_KEY_NSHumanReadableCopyright = "";
 				INFOPLIST_KEY_NSMainStoryboardFile = Main;
 				INFOPLIST_KEY_NSPrincipalClass = NSApplication;
@@ -304,6 +349,7 @@
 				DEVELOPMENT_TEAM = 6526WFULUB;
 				ENABLE_HARDENED_RUNTIME = YES;
 				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_KEY_CFBundleDisplayName = PasteBoard;
 				INFOPLIST_KEY_NSHumanReadableCopyright = "";
 				INFOPLIST_KEY_NSMainStoryboardFile = Main;
 				INFOPLIST_KEY_NSPrincipalClass = NSApplication;

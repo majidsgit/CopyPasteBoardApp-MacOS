@@ -5,16 +5,64 @@
 //  Created by Majid on 20/03/2023.
 //
 
-import Cocoa
+import AppKit
 
 class ViewController: NSViewController {
-    
-    @IBOutlet weak var itemsFilterComboButton: NSComboButton!
-    @IBOutlet weak var itemsCollectionView: NSCollectionView!
     
     fileprivate var itemsFilter = 0 // 0:All, 1:Folders, 2:Files
     fileprivate var items = [Item]()
     fileprivate var itemsFiltered = [Item]()
+    fileprivate var saveDirectoryURL: NSURL?
+    
+    @IBOutlet weak var itemsFilterComboButton: NSComboButton!
+    @IBOutlet weak var pasteOperationButton: NSButton!
+    @IBOutlet weak var deleteItemsButton: NSButton!
+    @IBOutlet weak var settingsButton: NSButton!
+    @IBOutlet weak var infoButton: NSButton!
+    
+    @IBOutlet weak var itemsCollectionView: NSCollectionView!
+    
+    
+    @IBAction func pasteButtonDidTap(_ sender: Any) {
+        let panel = NSOpenPanel()
+        panel.delegate = self
+        panel.title = "PasteBoard - Paste"
+        panel.prompt = "Paste"
+        panel.allowsMultipleSelection = false
+        panel.canCreateDirectories = true
+        panel.canChooseFiles = false
+        panel.canChooseDirectories = true
+        guard let window = self.view.window else { return }
+        panel.beginSheetModal(for: window) { [weak self] response in
+            if response == .cancel {
+                self?.saveDirectoryURL = nil
+            } else if response == .OK {
+                self?.pasteItemsToSelectedURL()
+            }
+        }
+    }
+    @IBAction func deleteItemsButtonDidTap(_ sender: Any) {
+        if itemsFilter == 0 {
+            items.removeAll()
+            itemsFiltered.removeAll()
+            itemsCollectionView.reloadData()
+            deleteItemsButton.isEnabled = false
+            pasteOperationButton.isEnabled = false
+        } else {
+            for filter in itemsFiltered {
+                items.removeAll(where: { $0.url == filter.url })
+            }
+            itemsFiltered.removeAll()
+            deleteItemsButton.isEnabled = false
+            pasteOperationButton.isEnabled = false
+        }
+    }
+    @IBAction func settingsButtonDidTap(_ sender: Any) {
+        
+    }
+    @IBAction func infoButtonDidTap(_ sender: Any) {
+        
+    }
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -80,6 +128,39 @@ class ViewController: NSViewController {
         }
     }
     
+    enum pasteError: Error {
+        case fileNotFound, urlPathError
+    }
+    
+    func pasteItemsToSelectedURL() {
+        do {
+            for item in items {
+                guard let urlPath = item.url?.path else {
+                    throw pasteError.urlPathError
+                }
+                print(urlPath)
+                if FileManager.default.fileExists(atPath: urlPath) == false {
+                    throw pasteError.fileNotFound
+                }
+            }
+            for item in items {
+                guard let srcURL = item.url as? URL else {
+                    throw pasteError.urlPathError
+                }
+                guard let dstURL = self.saveDirectoryURL as? URL else {
+                    throw pasteError.urlPathError
+                }
+                try FileManager.default.copyItem(at: srcURL, to: dstURL)
+                items.removeAll()
+                itemsFiltered.removeAll()
+                itemsCollectionView.reloadData()
+            }
+        } catch let error {
+            print(error)
+            // show modal error
+        }
+    }
+    
     func filterItems() {
         itemsFiltered = items.filter({ [weak self] item in
             switch self?.itemsFilter {
@@ -93,6 +174,8 @@ class ViewController: NSViewController {
                 return false
             }
         })
+        deleteItemsButton.isEnabled = itemsFiltered.count > 0
+        pasteOperationButton.isEnabled = itemsFiltered.count > 0
         itemsCollectionView.reloadData()
     }
     
@@ -160,4 +243,12 @@ extension ViewController: NSCollectionViewDelegate, NSCollectionViewDataSource {
         return NSCollectionViewItem()
     }
     
+}
+
+
+extension ViewController: NSOpenSavePanelDelegate {
+    
+    func panel(_ sender: Any, didChangeToDirectoryURL url: URL?) {
+        self.saveDirectoryURL = url as? NSURL
+    }
 }

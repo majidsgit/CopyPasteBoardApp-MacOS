@@ -85,15 +85,58 @@
                             <stackView distribution="equalCentering" orientation="horizontal" alignment="top" spacing="7" horizontalStackHuggingPriority="249.99998474121094" verticalStackHuggingPriority="249.99998474121094" detachesHiddenViews="YES" translatesAutoresizingMaskIntoConstraints="NO" id="X53-UI-2Ch">
                                 <rect key="frame" x="16" y="214" width="218" height="20"/>
                                 <subviews>
-                                    <comboButton verticalHuggingPriority="750" baseWritingDirection="leftToRight" alignment="center" title="" image="list.bullet" catalog="system" imageScaling="proportionallyDown" style="unified" translatesAutoresizingMaskIntoConstraints="NO" id="iAb-fW-DdD">
-                                        <rect key="frame" x="-3" y="-2" width="33" height="24"/>
-                                        <menu key="menu" id="CO0-5O-0mm">
-                                            <items>
-                                                <menuItem title="Item 1" id="8CQ-fA-LwD"/>
-                                                <menuItem title="Item 2" id="gi1-aC-cz6"/>
-                                            </items>
-                                        </menu>
-                                    </comboButton>
+                                    <stackView distribution="fill" orientation="horizontal" alignment="top" spacing="6" horizontalStackHuggingPriority="249.99998474121094" verticalStackHuggingPriority="249.99998474121094" detachesHiddenViews="YES" translatesAutoresizingMaskIntoConstraints="NO" id="dpz-s6-Wcd">
+                                        <rect key="frame" x="0.0" y="0.0" width="93" height="20"/>
+                                        <subviews>
+                                            <comboButton verticalHuggingPriority="750" baseWritingDirection="leftToRight" alignment="center" title="" image="list.bullet" catalog="system" imageScaling="proportionallyDown" style="unified" translatesAutoresizingMaskIntoConstraints="NO" id="iAb-fW-DdD">
+                                                <rect key="frame" x="-3" y="-2" width="33" height="24"/>
+                                                <menu key="menu" id="CO0-5O-0mm">
+                                                    <items>
+                                                        <menuItem title="Item 1" id="8CQ-fA-LwD"/>
+                                                        <menuItem title="Item 2" id="gi1-aC-cz6"/>
+                                                    </items>
+                                                </menu>
+                                            </comboButton>
+                                            <button verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="dma-PS-VMC">
+                                                <rect key="frame" x="32" y="-2" width="29" height="23"/>
+                                                <buttonCell key="cell" type="roundTextured" title="Textured Rounded" bezelStyle="texturedRounded" image="doc.on.clipboard" catalog="system" imagePosition="only" alignment="center" lineBreakMode="truncatingTail" state="on" borderStyle="border" imageScaling="proportionallyDown" inset="2" id="WGn-jk-Ewz">
+                                                    <behavior key="behavior" lightByContents="YES"/>
+                                                    <font key="font" metaFont="system"/>
+                                                    <string key="keyEquivalent" base64-UTF8="YES">
+DQ
+</string>
+                                                    <modifierMask key="keyEquivalentModifierMask" command="YES"/>
+                                                </buttonCell>
+                                                <connections>
+                                                    <action selector="pasteButtonDidTap:" target="XfG-lQ-9wD" id="B1q-QW-Phr"/>
+                                                </connections>
+                                            </button>
+                                            <button verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="gBY-kE-cjk">
+                                                <rect key="frame" x="65" y="-2" width="29" height="23"/>
+                                                <buttonCell key="cell" type="roundTextured" title="Textured Rounded" bezelStyle="texturedRounded" image="delete.left.fill" catalog="system" imagePosition="only" alignment="center" lineBreakMode="truncatingTail" state="on" borderStyle="border" imageScaling="proportionallyDown" inset="2" id="Eep-ee-oa5">
+                                                    <behavior key="behavior" lightByContents="YES"/>
+                                                    <font key="font" metaFont="system"/>
+                                                    <string key="keyEquivalent" base64-UTF8="YES">
+CA
+</string>
+                                                    <modifierMask key="keyEquivalentModifierMask" command="YES"/>
+                                                </buttonCell>
+                                                <connections>
+                                                    <action selector="deleteItemsButtonDidTap:" target="XfG-lQ-9wD" id="8Gz-Rs-tJi"/>
+                                                </connections>
+                                            </button>
+                                        </subviews>
+                                        <visibilityPriorities>
+                                            <integer value="1000"/>
+                                            <integer value="1000"/>
+                                            <integer value="1000"/>
+                                        </visibilityPriorities>
+                                        <customSpacing>
+                                            <real value="3.4028234663852886e+38"/>
+                                            <real value="3.4028234663852886e+38"/>
+                                            <real value="3.4028234663852886e+38"/>
+                                        </customSpacing>
+                                    </stackView>
                                     <stackView distribution="fill" orientation="horizontal" alignment="top" spacing="6" horizontalStackHuggingPriority="249.99998474121094" verticalStackHuggingPriority="249.99998474121094" detachesHiddenViews="YES" translatesAutoresizingMaskIntoConstraints="NO" id="du4-cS-57W">
                                         <rect key="frame" x="160" y="0.0" width="58" height="20"/>
                                         <subviews>
@@ -105,6 +148,9 @@
                                                     <string key="keyEquivalent">p</string>
                                                     <modifierMask key="keyEquivalentModifierMask" command="YES"/>
                                                 </buttonCell>
+                                                <connections>
+                                                    <action selector="settingsButtonDidTap:" target="XfG-lQ-9wD" id="ow8-EU-2pg"/>
+                                                </connections>
                                             </button>
                                             <button verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="ZMC-wK-WDP">
                                                 <rect key="frame" x="32" y="-2" width="27" height="23"/>
@@ -112,6 +158,9 @@
                                                     <behavior key="behavior" lightByContents="YES"/>
                                                     <font key="font" metaFont="system"/>
                                                 </buttonCell>
+                                                <connections>
+                                                    <action selector="infoButtonDidTap:" target="XfG-lQ-9wD" id="pFz-HQ-6fW"/>
+                                                </connections>
                                             </button>
                                         </subviews>
                                         <visibilityPriorities>
@@ -134,13 +183,13 @@
                                 </customSpacing>
                             </stackView>
                             <scrollView wantsLayer="YES" borderType="none" autohidesScrollers="YES" horizontalLineScroll="0.0" horizontalPageScroll="0.0" verticalLineScroll="0.0" verticalPageScroll="0.0" hasHorizontalScroller="NO" horizontalScrollElasticity="none" verticalScrollElasticity="none" translatesAutoresizingMaskIntoConstraints="NO" id="Bbs-VM-rld">
-                                <rect key="frame" x="8" y="8" width="234" height="190"/>
+                                <rect key="frame" x="4" y="8" width="242" height="190"/>
                                 <clipView key="contentView" drawsBackground="NO" copiesOnScroll="NO" id="4xD-VZ-HyF">
-                                    <rect key="frame" x="0.0" y="0.0" width="234" height="190"/>
+                                    <rect key="frame" x="0.0" y="0.0" width="242" height="190"/>
                                     <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                                     <subviews>
                                         <collectionView id="R9h-3A-6cs">
-                                            <rect key="frame" x="0.0" y="0.0" width="234" height="190"/>
+                                            <rect key="frame" x="0.0" y="0.0" width="242" height="190"/>
                                             <autoresizingMask key="autoresizingMask" widthSizable="YES"/>
                                             <collectionViewFlowLayout key="collectionViewLayout" minimumInteritemSpacing="4" minimumLineSpacing="4" id="gPb-wP-U8g">
                                                 <size key="itemSize" width="234" height="42"/>
@@ -154,25 +203,29 @@
                                     <rect key="frame" x="-100" y="-100" width="233" height="15"/>
                                     <autoresizingMask key="autoresizingMask"/>
                                 </scroller>
-                                <scroller key="verticalScroller" hidden="YES" wantsLayer="YES" verticalHuggingPriority="750" doubleValue="1" horizontal="NO" id="Kxm-Us-QPB">
-                                    <rect key="frame" x="-100" y="-100" width="15" height="143"/>
+                                <scroller key="verticalScroller" hidden="YES" wantsLayer="YES" verticalHuggingPriority="750" controlSize="small" horizontal="NO" id="Kxm-Us-QPB">
+                                    <rect key="frame" x="-100" y="-100" width="11" height="143"/>
                                     <autoresizingMask key="autoresizingMask"/>
                                 </scroller>
                             </scrollView>
                         </subviews>
                         <constraints>
                             <constraint firstAttribute="bottom" secondItem="Bbs-VM-rld" secondAttribute="bottom" constant="8" id="5dZ-2l-qA2"/>
-                            <constraint firstAttribute="trailing" secondItem="Bbs-VM-rld" secondAttribute="trailing" constant="8" id="Bvt-kO-4AN"/>
+                            <constraint firstAttribute="trailing" secondItem="Bbs-VM-rld" secondAttribute="trailing" constant="4" id="Bvt-kO-4AN"/>
                             <constraint firstAttribute="trailing" secondItem="X53-UI-2Ch" secondAttribute="trailing" constant="16" id="DBx-v1-Pst"/>
                             <constraint firstItem="X53-UI-2Ch" firstAttribute="top" secondItem="m2S-Jp-Qdl" secondAttribute="top" constant="16" id="DCM-yC-YfD"/>
                             <constraint firstItem="Bbs-VM-rld" firstAttribute="top" secondItem="X53-UI-2Ch" secondAttribute="bottom" constant="16" id="Hn5-qY-gNZ"/>
                             <constraint firstItem="X53-UI-2Ch" firstAttribute="leading" secondItem="m2S-Jp-Qdl" secondAttribute="leading" constant="16" id="OrU-n5-RSh"/>
-                            <constraint firstItem="Bbs-VM-rld" firstAttribute="leading" secondItem="m2S-Jp-Qdl" secondAttribute="leading" constant="8" id="ePv-CO-O27"/>
+                            <constraint firstItem="Bbs-VM-rld" firstAttribute="leading" secondItem="m2S-Jp-Qdl" secondAttribute="leading" constant="4" id="ePv-CO-O27"/>
                         </constraints>
                     </view>
                     <connections>
+                        <outlet property="deleteItemsButton" destination="gBY-kE-cjk" id="CYN-FR-Aca"/>
+                        <outlet property="infoButton" destination="ZMC-wK-WDP" id="DrG-Lv-Nzb"/>
                         <outlet property="itemsCollectionView" destination="R9h-3A-6cs" id="Z3p-qv-yr6"/>
                         <outlet property="itemsFilterComboButton" destination="iAb-fW-DdD" id="D0E-XH-kh7"/>
+                        <outlet property="pasteOperationButton" destination="dma-PS-VMC" id="cJ2-y8-2KZ"/>
+                        <outlet property="settingsButton" destination="KnU-K1-GgV" id="6vw-Tz-eIs"/>
                     </connections>
                 </viewController>
                 <customObject id="rPt-NT-nkU" userLabel="First Responder" customClass="NSResponder" sceneMemberID="firstResponder"/>
@@ -181,6 +234,8 @@
         </scene>
     </scenes>
     <resources>
+        <image name="delete.left.fill" catalog="system" width="17" height="14"/>
+        <image name="doc.on.clipboard" catalog="system" width="17" height="18"/>
         <image name="gear" catalog="system" width="17" height="17"/>
         <image name="list.bullet" catalog="system" width="17" height="12"/>
         <image name="questionmark.circle.fill" catalog="system" width="15" height="15"/>

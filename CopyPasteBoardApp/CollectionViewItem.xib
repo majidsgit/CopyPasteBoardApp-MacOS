@@ -19,9 +19,12 @@
             <rect key="frame" x="0.0" y="0.0" width="234" height="42"/>
             <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
             <subviews>
-                <textField horizontalHuggingPriority="251" verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="AUR-JC-ZZ9">
-                    <rect key="frame" x="26" y="13" width="37" height="16"/>
-                    <textFieldCell key="cell" lineBreakMode="clipping" title="Label" id="inw-Rw-6Ub">
+                <textField horizontalHuggingPriority="251" verticalHuggingPriority="750" textCompletion="NO" translatesAutoresizingMaskIntoConstraints="NO" id="AUR-JC-ZZ9">
+                    <rect key="frame" x="26" y="13" width="104" height="16"/>
+                    <constraints>
+                        <constraint firstAttribute="width" constant="100" id="mTt-dg-Agn"/>
+                    </constraints>
+                    <textFieldCell key="cell" lineBreakMode="truncatingMiddle" allowsUndo="NO" alignment="left" title="Label" id="inw-Rw-6Ub">
                         <font key="font" usesAppearanceFont="YES"/>
                         <color key="textColor" name="labelColor" catalog="System" colorSpace="catalog"/>
                         <color key="backgroundColor" name="textBackgroundColor" catalog="System" colorSpace="catalog"/>
@@ -41,9 +44,12 @@
                         <action selector="gotoButtonDidTap:" target="-2" id="YLt-Dt-Thq"/>
                     </connections>
                 </button>
-                <textField horizontalHuggingPriority="251" verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="Rjn-VX-Nax">
-                    <rect key="frame" x="179" y="13" width="37" height="16"/>
-                    <textFieldCell key="cell" lineBreakMode="clipping" alignment="right" title="Label" id="Zey-EA-hyq">
+                <textField horizontalHuggingPriority="251" verticalHuggingPriority="750" textCompletion="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Rjn-VX-Nax">
+                    <rect key="frame" x="132" y="13" width="84" height="16"/>
+                    <constraints>
+                        <constraint firstAttribute="width" constant="80" id="y6o-Si-aYF"/>
+                    </constraints>
+                    <textFieldCell key="cell" lineBreakMode="truncatingTail" allowsUndo="NO" alignment="right" title="Label" id="Zey-EA-hyq">
                         <font key="font" metaFont="system"/>
                         <color key="textColor" name="labelColor" catalog="System" colorSpace="catalog"/>
                         <color key="backgroundColor" name="textBackgroundColor" catalog="System" colorSpace="catalog"/>
@@ -67,7 +73,6 @@
                 <constraint firstItem="eWi-CM-3me" firstAttribute="centerY" secondItem="Hz6-mo-xeY" secondAttribute="centerY" id="f2Y-2g-kMz"/>
                 <constraint firstItem="XoS-mk-xCg" firstAttribute="centerY" secondItem="Hz6-mo-xeY" secondAttribute="centerY" id="kZn-Ji-T5V"/>
                 <constraint firstItem="AUR-JC-ZZ9" firstAttribute="centerY" secondItem="Hz6-mo-xeY" secondAttribute="centerY" id="wxW-uk-OYV"/>
-                <constraint firstItem="Rjn-VX-Nax" firstAttribute="leading" relation="greaterThanOrEqual" secondItem="AUR-JC-ZZ9" secondAttribute="trailing" constant="8" id="wz9-xB-Grt"/>
             </constraints>
             <point key="canvasLocation" x="132" y="-65"/>
         </customView>

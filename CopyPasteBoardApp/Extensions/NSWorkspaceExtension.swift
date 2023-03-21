@@ -21,5 +21,4 @@ extension NSWorkspace {
             NSWorkspace.shared.activateFileViewerSelecting([url as URL])
         }
     }
-
 }

@@ -13,9 +13,11 @@ class ViewController: NSViewController {
     fileprivate var items = [Item]()
     fileprivate var itemsFiltered = [Item]()
     fileprivate var saveDirectoryURL: NSURL?
+    fileprivate var pasteOperationType: PasteOperationType?
     
     @IBOutlet weak var itemsFilterComboButton: NSComboButton!
     @IBOutlet weak var pasteOperationButton: NSButton!
+    @IBOutlet weak var cutPasteOperationButton: NSButton!
     @IBOutlet weak var deleteItemsButton: NSButton!
     @IBOutlet weak var settingsButton: NSButton!
     @IBOutlet weak var infoButton: NSButton!
@@ -23,6 +25,26 @@ class ViewController: NSViewController {
     @IBOutlet weak var itemsCollectionView: NSCollectionView!
     
     
+    @IBAction func cutPasteButtonDidTap(_ sender: Any) {
+        let panel = NSOpenPanel()
+        panel.delegate = self
+        panel.title = "PasteBoard - Cut"
+        panel.prompt = "Cut"
+        panel.allowsMultipleSelection = false
+        panel.canCreateDirectories = true
+        panel.canChooseFiles = false
+        panel.canChooseDirectories = true
+        panel.directoryURL = URL(string: "~/Desktop")
+        guard let window = self.view.window else { return }
+        pasteOperationType = .cut
+        panel.beginSheetModal(for: window) { [weak self] response in
+            if response == .cancel {
+                self?.saveDirectoryURL = nil
+            } else if response == .OK {
+                self?.pasteItemsToSelectedURL()
+            }
+        }
+    }
     @IBAction func pasteButtonDidTap(_ sender: Any) {
         let panel = NSOpenPanel()
         panel.delegate = self
@@ -32,7 +54,9 @@ class ViewController: NSViewController {
         panel.canCreateDirectories = true
         panel.canChooseFiles = false
         panel.canChooseDirectories = true
+        panel.directoryURL = URL(string: "~/Desktop")
         guard let window = self.view.window else { return }
+        pasteOperationType = .copy
         panel.beginSheetModal(for: window) { [weak self] response in
             if response == .cancel {
                 self?.saveDirectoryURL = nil
@@ -75,6 +99,7 @@ class ViewController: NSViewController {
         
         setupFilterMenuItems()
         setupPasteBoard()
+        filterItems()
     }
 
     override var representedObject: Any? {
@@ -132,29 +157,50 @@ class ViewController: NSViewController {
         case fileNotFound, urlPathError
     }
     
+    enum PasteOperationType {
+        case copy, cut
+    }
+    
     func pasteItemsToSelectedURL() {
         do {
             for item in items {
                 guard let urlPath = item.url?.path else {
                     throw pasteError.urlPathError
                 }
-                print(urlPath)
                 if FileManager.default.fileExists(atPath: urlPath) == false {
+                    print(urlPath)
                     throw pasteError.fileNotFound
                 }
             }
             for item in items {
                 guard let srcURL = item.url as? URL else {
+                    print("scrURL Error")
                     throw pasteError.urlPathError
                 }
                 guard let dstURL = self.saveDirectoryURL as? URL else {
+                    print("saveDirectoryURL Error")
                     throw pasteError.urlPathError
                 }
-                try FileManager.default.copyItem(at: srcURL, to: dstURL)
-                items.removeAll()
-                itemsFiltered.removeAll()
-                itemsCollectionView.reloadData()
+                var dstURLWithPathFileName = dstURL
+                if let fileName = srcURL.pathComponents.last {
+                    dstURLWithPathFileName.append(path: fileName)
+                }
+                try FileManager.default.copyItem(at: srcURL, to: dstURLWithPathFileName)
             }
+            if pasteOperationType == .cut {
+                for item in items {
+                    guard let srcURL = item.url as? URL else {
+                        print("scrURL Error")
+                        throw pasteError.urlPathError
+                    }
+                    try FileManager.default.removeItem(at: srcURL)
+                }
+            }
+            pasteOperationType = nil
+            saveDirectoryURL = nil
+            items.removeAll()
+            itemsFiltered.removeAll()
+            itemsCollectionView.reloadData()
         } catch let error {
             print(error)
             // show modal error
@@ -176,6 +222,7 @@ class ViewController: NSViewController {
         })
         deleteItemsButton.isEnabled = itemsFiltered.count > 0
         pasteOperationButton.isEnabled = itemsFiltered.count > 0
+        cutPasteOperationButton.isEnabled = itemsFiltered.count > 0
         itemsCollectionView.reloadData()
     }
     
